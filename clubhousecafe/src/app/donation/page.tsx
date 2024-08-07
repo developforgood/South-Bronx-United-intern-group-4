@@ -367,7 +367,36 @@ const DonationsPage: React.FC = () => {
       {step === 3 && (
         <div>
           <h2>Thank you for your donation!</h2>
-          {/* You can render a confirmation message or redirect to a thank you page */}
+          <p style={{ marginBottom: '20px' }}>
+            Since 2009, South Bronx United has used your contributions to...
+          </p>
+          
+          <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+            <li>
+              Mentor <span style={{ color: 'blue' }}>321</span> South Bronx teens to graduate high school through SBU Academy
+            </li>
+            <li>
+              Help <span style={{ color: 'blue' }}>256</span> Young Leaders attend college
+            </li>
+            <li>
+              Provide <span style={{ color: 'blue' }}>87</span> students each year with tutoring, academic enrichment, and college prep
+            </li>
+            <li>
+              Support <span style={{ color: 'blue' }}>87</span> men and women in earning their Bachelor's degrees
+            </li>
+            <li>
+              Assist <span style={{ color: 'blue' }}>33</span> undocumented youth in receiving permanent residency
+            </li>
+            <li>
+              Deliver at least <span style={{ color: 'blue' }}>10</span> hours of programming per week for each SBU Academy participant
+            </li>
+          </ul>
+          
+          <img
+            src="/img/donation.png"
+            alt="Donation Impact"
+            style={{ maxWidth: '100%', height: 'auto', marginTop: '20px' }}
+          />
         </div>
       )}
     </div>
