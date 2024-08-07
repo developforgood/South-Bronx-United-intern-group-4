@@ -3,88 +3,107 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 224, 246, 255;
-  --background-end-rgb: 224, 246, 255;
+  --foreground-rgb: 34, 34, 34; /* Darker text for better readability */
+  --background-start-rgb: 240, 248, 255; /* Slightly lighter background for better contrast */
+  --background-end-rgb: 240, 248, 255;
+  --button-bg-color: #007bff; /* Button background color */
+  --button-text-color: #fff; /* Button text color */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 224, 246, 255;
-    --background-end-rgb: 224, 246, 255;
+    --foreground-rgb: 255, 255, 255; /* Lighter text for dark mode */
+    --background-start-rgb: 34, 34, 34; /* Dark background for dark mode */
+    --background-end-rgb: 34, 34, 34;
+    --button-bg-color: #0056b3; /* Darker button background color for dark mode */
   }
 }
 
-htmlbody {
+html, body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    /* make default font Georgia */
-    font-family: Georgia, serif !important;
+      rgba(var(--background-start-rgb), 0.8),
+      rgba(var(--background-end-rgb), 1)
+    );
+  font-family: 'Georgia', serif;
+  margin: 0; /* Ensure no margin around the body */
+  padding: 0; /* Ensure no padding around the body */
 }
 
 p {
-  /* center text and make it wrap */
   text-align: center;
   white-space: pre-wrap;
-  /* add padding to top and bottom */
-  padding: 0.25rem 0;
+  padding: 0.5rem 0; /* Increased padding for better spacing */
+  line-height: 1.6; /* Improve readability */
 }
 
 h1 {
-  /* center it and bold it */
   text-align: center;
   font-weight: bold;
-  /* make it a little bigger */
-  font-size: 2rem;
+  font-size: 2rem; /* Increased size for emphasis */
+  margin: 0rem 0; /* Add spacing around header */
 }
 
 h2 {
-  /* center it and bold it */
   text-align: center;
   font-weight: bold;
-  /* make it a little bigger */
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Slightly larger than before */
+  margin: 0.2rem 0; /* Add spacing around header */
 }
 
 h3 {
-  /* center it and bold it */
   font-weight: bold;
-  /* make it a little bigger */
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly larger for better readability */
+  margin: 0.1rem 0; /* Add spacing around header */
 }
 
 button {
-  /* make buttons look pretty and align them horizontally and center them */
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem; /* Slightly increased padding */
   border-radius: 0.5rem;
   display: inline-block;
-  margin: 0 auto;
-  /* give them a black border, rounded edges, and fill background with white */
-  border: 1px solid rgb(var(--foreground-rgb));
-  background: white;
-  /* center buttons in screen and space them out */
+  border: none;
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
   text-align: center;
-  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 1rem; /* Increased font size for better readability */
+  margin: 0rem 1.2rem;
+}
+
+button:hover {
+  background: darken(var(--button-bg-color), 10%); /* Slightly darker on hover */
 }
 
 .logo {
-
-  width: 15%;
-  height: auto; /* Maintain aspect ratio */
-  /* add padding to right side */
-  padding-right: 0.5rem;
-
+  width: 20%; /* Increased size for better visibility */
+  height: auto;
+  margin-bottom: 1rem; /* Add space below the logo */
 }
 
-input {
-  /* make input fields look pretty */
-  margin-right: 0.5rem;
+input, select, textarea {
+  padding: 0.1rem;
+  margin-bottom: 0.1rem; /* Add space below inputs */
+  margin-right: 1rem;
+  border-radius: 0.15rem;
+  border: 1px solid #ccc; /* Light border for inputs */
+  font-size: 1rem; /* Adjust font size for better readability */
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--button-bg-color); /* Highlight border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+ul {
+  list-style-type: disc; /* Ensures bullet points are displayed */
+  margin: 0;
+  padding-left: 1.25rem; /* Adds space to the left of the list for bullets */
+}
+
+li {
+  margin-bottom: 0.1rem; /* Adds space between list items */
 }
 
 @layer utilities {
