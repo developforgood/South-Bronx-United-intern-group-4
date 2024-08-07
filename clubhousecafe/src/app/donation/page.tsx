@@ -86,10 +86,10 @@ const DonationsPage: React.FC = () => {
         className="logo"
       />
       <h1>Donate to Our Cause</h1>
-      <p>Thank you for supporting our cause!</p>
 
       {step === 1 && (
         <>
+          <p>Thank you for supporting our cause!</p>
           <div style={{ marginBottom: '20px' }}>
             <h2>Donation Amount</h2>
             <div style={{ marginBottom: '15px' }}>
@@ -194,6 +194,7 @@ const DonationsPage: React.FC = () => {
 
       {step === 2 && (
         <div>
+          <p>Thank you for supporting our cause!</p>
           <h2>Payment Info</h2>
           
           <div style={{ marginBottom: '20px' }}>
@@ -393,7 +394,7 @@ const DonationsPage: React.FC = () => {
           </ul>
           
           <img
-            src="/img/donation.png"
+            src="/img/donation.jpg"
             alt="Donation Impact"
             style={{ maxWidth: '100%', height: 'auto', marginTop: '20px' }}
           />
