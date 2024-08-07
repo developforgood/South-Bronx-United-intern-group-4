@@ -87,6 +87,16 @@ input {
   margin-right: 0.5rem;
 }
 
+ul {
+  list-style-type: disc; /* Ensures bullet points are displayed */
+  margin: 0;
+  padding-left: 1.5rem; /* Adds space to the left of the list for bullets */
+}
+
+li {
+  margin-bottom: 0.5rem; /* Adds space between list items */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
