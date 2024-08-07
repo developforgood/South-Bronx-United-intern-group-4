@@ -77,7 +77,7 @@ const DonationsPage: React.FC = () => {
               value={formData.amount > 0 ? formData.amount : ''}
               onChange={handleChange}
               min="0"
-              placeholder="Enter amount"
+              placeholder="Enter amount (USD)"
               style={{ width: '100%', padding: '8px' }}
             />
             <div style={{ marginTop: '10px' }}>
@@ -99,7 +99,7 @@ const DonationsPage: React.FC = () => {
                   checked={formData.coverFees}
                   onChange={handleChange}
                 />
-                Please charge me an additional (${processingFee.toFixed(2)}) to cover processing fees
+                Please charge me an additional ${processingFee.toFixed(2)} to cover processing fees
               </label>
             </div>
           </div>
@@ -107,7 +107,7 @@ const DonationsPage: React.FC = () => {
           <div style={{ marginBottom: '20px' }}>
             <h2>Your Information</h2>
             <div style={{ marginBottom: '15px' }}>
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"
@@ -115,10 +115,11 @@ const DonationsPage: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 style={{ width: '100%', padding: '8px' }}
+                placeholder="Name"
               />
             </div>
             <div style={{ marginBottom: '15px' }}>
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
@@ -126,6 +127,7 @@ const DonationsPage: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 style={{ width: '100%', padding: '8px' }}
+                placeholder="Email"
               />
             </div>
             <div style={{ marginBottom: '15px' }}>
@@ -140,13 +142,14 @@ const DonationsPage: React.FC = () => {
               </label>
             </div>
             <div style={{ marginBottom: '15px' }}>
-              <label htmlFor="message">Message:</label>
+              <label htmlFor="message">Message</label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 style={{ width: '100%', padding: '8px', minHeight: '100px' }}
+                placeholder="Donation Message"
               />
             </div>
           </div>
