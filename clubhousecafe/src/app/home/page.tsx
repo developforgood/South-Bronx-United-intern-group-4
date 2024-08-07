@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
       {/* Background Image Section */}
       <div className="absolute inset-0 h-[45%]">
         <img
-          src="./Capture.svg" // Replace with the path to your image
+          src="./Capture.svg" 
           alt="Clubhouse Cafe Background"
           className="absolute inset-0 object-cover w-full h-full"
         />
