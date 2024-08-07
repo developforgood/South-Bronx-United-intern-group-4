@@ -10,8 +10,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 224, 246, 255;
-    --background-start-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 224, 246, 255;
     --background-end-rgb: 0, 0, 0;
   }
 }
@@ -64,8 +64,8 @@ button {
   margin: 0.5rem;
 }
 
-label {
-  /* add space between box and text */
+input {
+  /* make input fields look pretty */
   margin-right: 0.5rem;
 }
 
