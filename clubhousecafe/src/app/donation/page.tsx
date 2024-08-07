@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -15,6 +14,17 @@ interface DonationFormData {
   email: string;
   isCompany: boolean;
   message: string;
+  address: string;
+  apt: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  cardName: string;
+  cardNumber: string;
+  cardMM: string;
+  cardYYYY: string;
+  cardCVV: string;
 }
 
 const DonationsPage: React.FC = () => {
@@ -26,20 +36,31 @@ const DonationsPage: React.FC = () => {
     email: '',
     isCompany: false,
     message: '',
+    address: '',
+    apt: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: '',
+    cardName: '',
+    cardNumber: '',
+    cardMM: '',
+    cardYYYY: '',
+    cardCVV: '',
   });
 
   const [step, setStep] = useState<number>(1); // To manage form steps
 
-  // Effect to update processing fees when amount or coverFees changes
-  const processingFee = formData.amount > 0 
-    ? calculateProcessingFee(formData.amount) 
-    : 0;
+  // Ensure amount is a number
+  const amount = Number(formData.amount);
+  const processingFee = amount > 0 ? calculateProcessingFee(amount) : 0;
+  const total = formData.coverFees ? amount + processingFee : amount;
 
   useEffect(() => {
-    if (formData.amount === 0) {
+    if (amount === 0) {
       setFormData((prevData) => ({ ...prevData, coverFees: false }));
     }
-  }, [formData.amount]);
+  }, [amount]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type, checked } = e.target;
@@ -54,16 +75,21 @@ const DonationsPage: React.FC = () => {
   };
 
   const handleNext = () => {
-    // You can implement logic to save the data or validate it here
-    setStep(2); // Go to the next step
+    setStep((prevStep) => prevStep + 1); // Increment step to navigate to the next step
   };
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
+      <img
+        src="/img/sbu.png" // Path to your image
+        alt="Logo"
+        className="logo"
+      />
+      <h1>Donate to Our Cause</h1>
+      <p>Thank you for supporting our cause!</p>
+
       {step === 1 && (
         <>
-          <h1>Donate to Our Cause</h1>
-          <p>Thank you for supporting our cause!</p>
           <div style={{ marginBottom: '20px' }}>
             <h2>Donation Amount</h2>
             <div style={{ marginBottom: '15px' }}>
@@ -71,15 +97,18 @@ const DonationsPage: React.FC = () => {
               <button onClick={() => handleAmountClick(25)}>$25</button>
               <button onClick={() => handleAmountClick(50)}>$50</button>
             </div>
-            <input
-              type="number"
-              name="amount"
-              value={formData.amount > 0 ? formData.amount : ''}
-              onChange={handleChange}
-              min="0"
-              placeholder="Enter amount (USD)"
-              style={{ width: '100%', padding: '8px' }}
-            />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ marginRight: '10px' }}>$</span>
+              <input
+                type="number"
+                name="amount"
+                value={amount > 0 ? amount : ''}
+                onChange={handleChange}
+                min="0"
+                placeholder="Enter amount (USD)"
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
             <div style={{ marginTop: '10px' }}>
               <label>
                 <input
@@ -165,9 +194,180 @@ const DonationsPage: React.FC = () => {
 
       {step === 2 && (
         <div>
-          {/* Display summary or next steps here */}
+          <h2>Payment Info</h2>
+          
+          <div style={{ marginBottom: '20px' }}>
+            <h3>Address</h3>
+            <div style={{ display: 'flex', marginBottom: '15px' }}>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="Address"
+                />
+              </div>
+              <div style={{ flex: '1' }}>
+                <label htmlFor="apt">Apt/Suite</label>
+                <input
+                  type="text"
+                  id="apt"
+                  name="apt"
+                  value={formData.apt}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="Apt/Suite"
+                />
+              </div>
+            </div>
+            <div style={{ display: 'flex', marginBottom: '15px' }}>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="City"
+                />
+              </div>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="state">State</label>
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="State"
+                />
+              </div>
+              <div style={{ flex: '1' }}>
+                <label htmlFor="zip">Zip/Postal</label>
+                <input
+                  type="text"
+                  id="zip"
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="Zip/Postal"
+                />
+              </div>
+            </div>
+            <div style={{ marginBottom: '15px' }}>
+              <label htmlFor="country">Country</label>
+              <select
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
+                style={{ width: '100%', padding: '8px' }}
+              >
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+                {/* Add more countries as needed */}
+              </select>
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3>Card Information</h3>
+            <div style={{ display: 'flex', marginBottom: '15px' }}>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="cardName">Name on Card</label>
+                <input
+                  type="text"
+                  id="cardName"
+                  name="cardName"
+                  value={formData.cardName}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="Name"
+                />
+              </div>
+              <div style={{ flex: '2' }}>
+                <label htmlFor="cardNumber">Card Number</label>
+                <input
+                  type="text"
+                  id="cardNumber"
+                  name="cardNumber"
+                  value={formData.cardNumber}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="Card #"
+                />
+              </div>
+            </div>
+            <div style={{ display: 'flex', marginBottom: '15px' }}>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="cardMM">Month</label>
+                <input
+                  type="text"
+                  id="cardMM"
+                  name="cardMM"
+                  value={formData.cardMM}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="MM"
+                />
+              </div>
+              <div style={{ flex: '1', marginRight: '10px' }}>
+                <label htmlFor="cardYYYY">Year</label>
+                <input
+                  type="text"
+                  id="cardYYYY"
+                  name="cardYYYY"
+                  value={formData.cardYYYY}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="YYYY"
+                />
+              </div>
+              <div style={{ flex: '1' }}>
+                <label htmlFor="cardCVV">Security Code</label>
+                <input
+                  type="text"
+                  id="cardCVV"
+                  name="cardCVV"
+                  value={formData.cardCVV}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '8px' }}
+                  placeholder="CVV"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3>Donation Summary</h3>
+            <p>Amount: ${amount.toFixed(2)}</p>
+            {formData.coverFees && <p>Processing Fee: ${processingFee.toFixed(2)}</p>}
+            <p>Total: ${total.toFixed(2)}</p>
+          </div>
+
+          <button
+            onClick={handleNext}
+            style={{ padding: '10px 20px' }}
+          >
+            Donate
+          </button>
+        </div>
+      )}
+
+      {step === 3 && (
+        <div>
           <h2>Thank you for your donation!</h2>
-          {/* You can render a summary of the donation or redirect to a confirmation page */}
+          {/* You can render a confirmation message or redirect to a thank you page */}
         </div>
       )}
     </div>
