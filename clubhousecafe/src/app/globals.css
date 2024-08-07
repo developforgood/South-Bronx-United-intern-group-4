@@ -4,19 +4,19 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 224, 246, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 224, 246, 255;
+    --background-end-rgb: 255, 255, 255;
   }
 }
 
-body {
+html body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,6 +24,49 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    /* make default font Georgia */
+    font-family: Georgia, serif !important;
+}
+
+p {
+  /* center text and make it wrap */
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+h1 {
+  /* center it and bold it */
+  text-align: center;
+  font-weight: bold;
+  /* make it a little bigger */
+  font-size: 2rem;
+}
+
+h2 {
+  /* center it and bold it */
+  text-align: center;
+  font-weight: bold;
+  /* make it a little bigger */
+  font-size: 1.25rem;
+}
+
+button {
+  /* make buttons look pretty and align them horizontally and center them */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin: 0 auto;
+  /* give them a black border, rounded edges, and fill background with white */
+  border: 1px solid rgb(var(--foreground-rgb));
+  background: white;
+  /* center buttons in screen and space them out */
+  text-align: center;
+  margin: 0.5rem;
+}
+
+input {
+  /* make input fields look pretty */
+  margin-right: 0.5rem;
 }
 
 @layer utilities {
