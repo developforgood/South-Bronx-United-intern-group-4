@@ -32,6 +32,8 @@ p {
   /* center text and make it wrap */
   text-align: center;
   white-space: pre-wrap;
+  /* add padding to top and bottom */
+  padding: 0.25rem 0;
 }
 
 h1 {
@@ -50,6 +52,13 @@ h2 {
   font-size: 1.25rem;
 }
 
+h3 {
+  /* center it and bold it */
+  font-weight: bold;
+  /* make it a little bigger */
+  font-size: 1rem;
+}
+
 button {
   /* make buttons look pretty and align them horizontally and center them */
   padding: 0.5rem 1rem;
@@ -62,6 +71,15 @@ button {
   /* center buttons in screen and space them out */
   text-align: center;
   margin: 0.5rem;
+}
+
+.logo {
+
+  width: 15%;
+  height: auto; /* Maintain aspect ratio */
+  /* add padding to right side */
+  padding-right: 0.5rem;
+
 }
 
 input {
