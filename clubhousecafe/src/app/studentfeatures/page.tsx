@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import NavBar from '../bar';
 
 interface StudentProps {
   name: string;
@@ -59,6 +60,7 @@ const InfoAndLinks: React.FC = () => {
         description="JaneJohn is a graphiccompouter designerscience with a passionwho for digitalplaying art and gamesanimation."
       />
     </div>
+    <NavBar />
       </>
     );
   };

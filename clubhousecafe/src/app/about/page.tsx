@@ -2,6 +2,7 @@
 import React from 'react';
 import './About.css'; // Import the CSS file for styling
 import { useRouter } from 'next/navigation';
+import NavBar from '../bar';
 
 const About: React.FC = () => {
     const router = useRouter();
@@ -48,6 +49,7 @@ const About: React.FC = () => {
                 </p>
             </section>
         </div>
+        <NavBar />
         </>
 
 

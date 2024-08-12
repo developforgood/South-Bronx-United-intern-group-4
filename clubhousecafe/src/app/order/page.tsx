@@ -1,6 +1,7 @@
 "use client"; // Add this line to make the component a Client Component
 
 import React, { useState } from "react";
+import NavBar from '../bar';
 
 export default function Home() {
   const [cart, setCart] = useState([]);
@@ -84,6 +85,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <NavBar />
     </main>
   );
 }

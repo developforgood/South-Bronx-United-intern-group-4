@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import NavBar from '../bar';
 
 // Define the type for event data
 interface Event {
@@ -80,6 +81,7 @@ interface Event {
           ))}
         </div>
       </div>
+      <NavBar />
       </>
     );
   };

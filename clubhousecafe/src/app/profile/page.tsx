@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../bar';
 
 const ProfilePage: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const ProfilePage: React.FC = () => {
         <a href="/events" style={styles.navItem}>Events</a>
         <a href="/about" style={styles.navItem}>About</a>
       </nav>
+      <NavBar />
     </div>
   );
 };

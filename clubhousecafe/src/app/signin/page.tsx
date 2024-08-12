@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../bar';
 
 const SignInPage: React.FC = () => {
   return (
@@ -60,6 +61,7 @@ const SignInPage: React.FC = () => {
         <a href="/events" style={styles.navItem}>Events</a>
         <a href="/about" style={styles.navItem}>About</a>
       </nav>
+      <NavBar />
     </div>
   );
 };

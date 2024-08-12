@@ -1,7 +1,9 @@
 import React from 'react';
+import NavBar from '../bar';
 
 const HomePage: React.FC = () => {
   return (
+    <div>
     <div className="h-screen relative">
       {/* Background Image Section */}
       <div className="absolute inset-0 h-[45%]">
@@ -28,6 +30,8 @@ const HomePage: React.FC = () => {
         {/* Additional content goes here */}
         <p className="text-gray-700">Welcome to Clubhouse Cafe. Enjoy your stay!</p>
       </div>
+    </div>
+    <NavBar />
     </div>
   );
 };

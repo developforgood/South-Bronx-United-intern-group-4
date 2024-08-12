@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCoffee, faCalendar, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import NavBar from '../bar';
 
 const calculateProcessingFee = (amount: number): number => {
   return 0.0656 * amount + 0.32;
@@ -404,24 +403,7 @@ const DonationsPage: React.FC = () => {
           </div>
         )}
     </div>    
-      <footer>
-        <a href="/home" >
-          <FontAwesomeIcon icon={faHome} size="lg" />
-          <div>Home</div>
-        </a>
-        <a href="/order" >
-          <FontAwesomeIcon icon={faCoffee} size="lg" />
-          <div>Order</div>
-        </a>
-        <a href="/events" >
-          <FontAwesomeIcon icon={faCalendar} size="lg" />
-          <div>Events</div>
-        </a>
-        <a href="/about" >
-          <FontAwesomeIcon icon={faInfoCircle} size="lg" />
-          <div>About</div>
-        </a>
-      </footer>
+      <NavBar />
     </div>
   );
 };
